@@ -1,0 +1,13 @@
+name = "IsingJ"
+uuid = "9acfccde-8b4b-11e9-3ad5-0d21f93f53f4"
+authors = ["Yasutaka Nishida"]
+version = "0.1.0"
+
+[compat]
+julia = "1.1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
