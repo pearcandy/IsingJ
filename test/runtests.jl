@@ -2,5 +2,5 @@ using IsingJ
 using Test
 
 @testset "IsingJ.jl" begin
-    # Write your own tests here.
+    #test code
 end
