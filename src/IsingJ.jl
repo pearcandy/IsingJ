@@ -1,19 +1,14 @@
 """
-        
   I s i n g J
 
   ver 0.1.0 Released July 2019 
   This code is distributed under the constitution of MIT.
-
-  Log of ising.jl
-  
+  Log of ising.jl  
   2019/04/24  Released by Yassan1980
 
 """
 
-
 module IsingJ
-
     include("./MCsampling.jl")
     include("./Initial.jl")
     include("./Smoothing_mag.jl")
@@ -21,53 +16,43 @@ module IsingJ
     using Dates
     using Printf
     using Random
-
     using .MCsampling
     using .Initial
     using .Smoothing_mag
-
     export main
 
     # main
     function main()
         parser= ArgParseSettings("Julia code for solving 2D Ising model")
         @add_arg_table parser begin
-        
             "--lower_temp", "-l"
             arg_type = Float64
             default  = 0.1
-            help     = "lowest temperature"
-        
+            help     = "lowest temperature"        
             "--upper_temp", "-u"
             arg_type = Float64
             default  = 5.0
-            help     = "highest temperature"
-        
+            help     = "highest temperature"        
             "--step_num", "-n"
             arg_type = Int
             default  = 30
-            help     = "step number of temperature"
-        
+            help     = "step number of temperature"        
             "--sweep_num", "-s"
             arg_type = Int
             default  = 2000
-            help     = "montecarlo sweep number"
-        
+            help     = "montecarlo sweep number"        
             "--warm_up", "-w"
             arg_type = Int
             default  = 2000
-            help     = "warm up steps before sampling"        
-        
+            help     = "warm up steps before sampling"                
             "--exch_j", "-j"
             arg_type = Float64
             default  = 1.0
-            help     = "exchange interaction"
-        
+            help     = "exchange interaction"        
             "--ext_field", "-e"
             arg_type = Float64
             default  = 0.0
-            help     = "magnetic field"
-        
+            help     = "magnetic field"        
             "--site_size", "-N"
             arg_type = Int
             default  = 64
@@ -76,8 +61,7 @@ module IsingJ
             args = parse_args(parser)
         
         """     
-        Arguments
-        
+        Arguments        
         N_site    : number of site
         j0_val    : temperature
         low_t     : minimum temperature
@@ -88,7 +72,6 @@ module IsingJ
         warm_up   : number of "warming-up" iteration
         
         """
-        
         N_site    = args["site_size"]
         j0_val    = args["exch_j"]
         low_t     = args["lower_temp"]
@@ -97,20 +80,16 @@ module IsingJ
         inum_t    = args["step_num"]
         sweep_num = args["sweep_num"]
         warm_up   = args["warm_up"]
-        
         cnst      = 2.26918  # Tc for square lattice 
-        
         # initialization of the physical quantities
         spin      = zeros(N_site,N_site)
         mag       = 0
         mag_ave   = 0
         dt        = (up_t-low_t)/float(inum_t)
         _mag      = []
-        
         # initialization of the spin config
         Random.seed!(100)
         spin_ini = cold_start(N_site)  # random_start(N_site) 
-        
         # start motecalro simulation
         td=Dates.today()
         println(" ")
@@ -122,8 +101,7 @@ module IsingJ
         println("     Copyright (C) yassan1980")
         println(" ")
         println("     Usage: julia Ising.jl -h")
-        println("---------------------------------------")
-        
+        println("---------------------------------------")        
         open("log.dat","w") do io
             println(io,"#temperature magnetization energy Cv Chi Tc")
             for i in 1:inum_t
@@ -138,20 +116,17 @@ module IsingJ
                 @printf(io, " %+06f"  , chi)
                 @printf(io, " %+06f\n", cnst)
                 append!(_mag,abs(mag))
-        
                 # log
                 if i%10==0
                     println(i,"/",inum_t,"steps")
                 else
                 end
-                
             end
         end        
-        
+
         # smoothing T vs magnetization
         output_T_vs_mag(low_t,dt,_mag)
-        
-        #-- plot (using python) --
+                #-- plot (using python) --
         #    pyplot=pyimport("matplotlib.pyplot")
         #    numpy=pyimport("numpy")
         #    x=[i for i in 1:N_site]
@@ -162,9 +137,7 @@ module IsingJ
         #    pyplot.show()
 
     end # main
-
 end # module
-
 #=-----------------------------------------------------------=#
 #if occursin(PROGRAM_FILE,@__FILE__)
 #    using .IsingJ
