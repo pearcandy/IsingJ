@@ -44,13 +44,12 @@ module MCsampling
             end
 
             if(io > warmup)
-               """  calculate phyiscal quantities
-                    1. total spin                   """
+                # 1. total spin
                 total_spin=sampling_magnetization(spin,N)
                 mag=mag+total_spin/sweepnum
                 mag2=mag2+(total_spin*total_spin)/sweepnum
-               """ 
-                    2. total energy                  """
+                
+                # 2. total energy
                 total_energy=sampling_energy(spin,N,j0,ext)
                 eng=eng+total_energy/sweepnum
                 eng2=eng2+(total_energy*total_energy)/sweepnum
