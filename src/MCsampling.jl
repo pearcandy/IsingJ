@@ -16,25 +16,22 @@ module MCsampling
         ext:
             magnetic field
         temp:
-            temperature (Tc=2.26918)            """
+            temperature (Tc=2.26918)                """
+
     function mcsampling(spin,sweepnum,warmup,N,j0,ext,temp)
-        # physical quantities
         mag=0
         eng=0
         mag2=0
         eng2=0
-        # montecarlo sweep
-        for io in 1:sweepnum+warmup
+        
+        for io in 1:sweepnum+warmup    # montecarlo sweep
             for i in 1:N
                 for j in 1:N
                     E_old=get_energy(spin,i,j,j0,N,ext)
-                    # spin flip at j-site
-                    spin[i,j]=(-1.0)*spin[i,j]
-                    E_new=get_energy(spin,i,j,j0,N,ext)
-                    # energy diff after spin flip
-                    delta=E_new-E_old
-                    # judgement of spin flip or not
-                    if(delta <= 0)
+                    spin[i,j]=(-1.0)*spin[i,j]          # spin flip at j-site
+                    E_new=get_energy(spin,i,j,j0,N,ext) 
+                    delta=E_new-E_old                   # energy diff after spin flip
+                    if(delta <= 0)                      # judgement of spin flip or not
                         spin[i,j]=spin[i,j]
                     else
                         if(rand() <= exp((-1.0)*delta/temp))
@@ -47,12 +44,13 @@ module MCsampling
             end
 
             if(io > warmup)
-                # calculate phyiscal quantities
-                # 1. total spin
+               """  calculate phyiscal quantities
+                    1. total spin                   """
                 total_spin=sampling_magnetization(spin,N)
                 mag=mag+total_spin/sweepnum
                 mag2=mag2+(total_spin*total_spin)/sweepnum
-                # 2. total energy
+               """ 
+                    2. total energy                  """
                 total_energy=sampling_energy(spin,N,j0,ext)
                 eng=eng+total_energy/sweepnum
                 eng2=eng2+(total_energy*total_energy)/sweepnum
