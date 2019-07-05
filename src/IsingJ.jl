@@ -4,9 +4,7 @@
   ver 0.1.0 Released July 2019 
   This code is distributed under the constitution of MIT.
   Log of ising.jl  
-  2019/04/24  Released by Yassan1980
-
-"""
+  2019/04/24  Released by Yassan1980                 """
 
 module IsingJ
     include("./MCsampling.jl")
@@ -60,8 +58,8 @@ module IsingJ
         end
             args = parse_args(parser)
         
-        """     
-        Arguments        
+      
+    """ Arguments        
         N_site    : number of site
         j0_val    : temperature
         low_t     : minimum temperature
@@ -69,9 +67,7 @@ module IsingJ
         ext       : external field
         inum_t    : number of temperature steps
         sweep_num : sweep number
-        warm_up   : number of "warming-up" iteration
-        
-        """
+        warm_up   : number of "warming-up" iteration  """
         N_site    = args["site_size"]
         j0_val    = args["exch_j"]
         low_t     = args["lower_temp"]
@@ -123,7 +119,6 @@ module IsingJ
                 end
             end
         end        
-
         # smoothing T vs magnetization
         output_T_vs_mag(low_t,dt,_mag)
                 #-- plot (using python) --
@@ -136,7 +131,7 @@ module IsingJ
         #    pyplot.axes().set_aspect("equal")
         #    pyplot.show()
 
-    end # main
+    end 
 end # module
 #=-----------------------------------------------------------=#
 #if occursin(PROGRAM_FILE,@__FILE__)

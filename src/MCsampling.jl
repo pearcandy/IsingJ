@@ -1,8 +1,7 @@
 module MCsampling
-
     export mcsampling
-    """
-    Algorithms for solving classical Ising model   
+   
+""" Algorithms for solving classical Ising model   
     Args:                                                       
         spin:
             spin    
@@ -17,8 +16,7 @@ module MCsampling
         ext:
             magnetic field
         temp:
-            temperature (Tc=2.26918)
-    """
+            temperature (Tc=2.26918)            """
     function mcsampling(spin,sweepnum,warmup,N,j0,ext,temp)
         # physical quantities
         mag=0

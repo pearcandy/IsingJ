@@ -1,16 +1,12 @@
 module Smoothing_mag
-
     using Printf
     export output_T_vs_mag
 
-    """
-      plot_T_vs_mag(_temp,_mag)
-      
+ """  plot_T_vs_mag(_temp,_mag)      
       output T vs Magnetization
       _temp: temperature
-      _mag : absolute values of magnetization
+      _mag : absolute values of magnetization  """
 
-    """
     function output_T_vs_mag(low_t,dt,_mag)
         open("t_mag.dat","w") do io
             println(io,"# temperature vs ave.magnetization")
@@ -30,6 +26,6 @@ module Smoothing_mag
                 @printf(io, " %+06f\n",   mag_ave)
             end
         end
-    end # function
+    end
 
 end #module

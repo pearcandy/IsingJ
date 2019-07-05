@@ -1,5 +1,4 @@
 module Initial
-
     export random_start,cold_start
 
     #random start : initialization of spin
@@ -22,4 +21,6 @@ module Initial
         spin=ones(N,N)
         return spin
     end
+
 end # module
+
