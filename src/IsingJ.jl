@@ -1,7 +1,7 @@
 """
   I s i n g J
 
-  ver 0.1.0 Released July 2019 
+  ver 0.2.0 Released July 2019 
   This code is distributed under the constitution of MIT.
   Log of ising.jl  
   2019/04/24  Released by Yassan1980                 """
@@ -115,7 +115,7 @@ module IsingJ
         println(td)
         println(" ")
         println("     I s i n g J")
-        println("     Version 0.1.0, Released July 2019")
+        println("     Version 0.2.0, Released July 2019")
         println(" ")
         println("     Copyright (C) yassan1980")
         println(" ")
@@ -142,7 +142,8 @@ module IsingJ
         end
         
         output_T_vs_mag(low_t,dt,_mag)   # smoothing T vs magnetization
-                #-- plot (using python) --
+
+        #-- plot (using python) --
         #    pyplot=pyimport("matplotlib.pyplot")
         #    numpy=pyimport("numpy")
         #    x=[i for i in 1:N_site]
@@ -155,8 +156,8 @@ module IsingJ
     end 
 end # module
 #=-----------------------------------------------------------=#
-if occursin(PROGRAM_FILE,@__FILE__)
-    using .IsingJ
-    main()
-end
+#if occursin(PROGRAM_FILE,@__FILE__)
+#    using .IsingJ
+#    main()
+#end
 
