@@ -7,6 +7,7 @@
   2019/04/24  Released by Yassan1980                 """
 
 module IsingJ
+    include("./Params.jl")
     include("./MCsampling.jl")
     include("./Initial.jl")
     include("./Smoothing_mag.jl")
@@ -14,6 +15,7 @@ module IsingJ
     using Dates
     using Printf
     using Random
+    using .Params
     using .MCsampling
     using .Initial
     using .Smoothing_mag
@@ -78,6 +80,27 @@ module IsingJ
         warm_up   = args["warm_up"]
         cnst      = 2.26918  # Tc for square lattice 
 
+        # set variables
+        site_size=64
+        exch_j=1.0
+        lower_temp=0.1
+        upper_temp=5.0
+        ext_field=0.0
+        step_num=30
+        sweep_num=2000
+        warm_up=2000
+
+        params = Params.Variables(site_size,exch_j,lower_temp,upper_temp,
+                                  ext_field,step_num,sweep_num,warm_up)
+        N_site    = params.site_size
+        j0_val    = params.exch_j
+        low_t     = params.lower_temp
+        up_t      = params.upper_temp
+        ext_val   = params.ext_field
+        inum_t    = params.step_num
+        sweep_num = params.sweep_num
+        warm_up   = params.warm_up
+
         # initialization of the physical quantities
         spin      = zeros(N_site,N_site)
         mag       = 0
@@ -132,8 +155,8 @@ module IsingJ
     end 
 end # module
 #=-----------------------------------------------------------=#
-#if occursin(PROGRAM_FILE,@__FILE__)
-#    using .IsingJ
-#    main()
-#end
+if occursin(PROGRAM_FILE,@__FILE__)
+    using .IsingJ
+    main()
+end
 
