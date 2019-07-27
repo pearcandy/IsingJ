@@ -20,7 +20,6 @@ module Smoothing_mag
                 else
                     mag_ave=_mag[i]
                 end
-
                 # -- output --
                 @printf(io, " %+06f",     _temp  )
                 @printf(io, " %+06f\n",   mag_ave)
