@@ -1,7 +1,7 @@
 """
   I s i n g J
 
-  ver 0.2.0 Released July 2019 
+  ver 0.2.1 Released Sep 2020 
   This code is distributed under the constitution of MIT.
   Log of ising.jl  
   2019/04/24  Released by Yassan1980                 """
