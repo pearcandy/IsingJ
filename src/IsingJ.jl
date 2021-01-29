@@ -2,9 +2,9 @@
   I s i n g J
 
   ver 0.2.1 Released Sep 2020 
-  This code is distributed under the constitution of MIT.
+  This code is distributed under the constitution of GNLv3.
   Log of ising.jl  
-  2019/04/24  Released by Yassan1980                 """
+  2019/04/24  Released by PearCandy                 """
 
 module IsingJ
     include("./Params.jl")

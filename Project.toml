@@ -1,6 +1,6 @@
 name = "IsingJ"
 uuid = "9acfccde-8b4b-11e9-3ad5-0d21f93f53f4"
-authors = ["Yasutaka Nishida"]
+authors = ["PearCandy"]
 version = "0.1.0"
 
 [deps]
