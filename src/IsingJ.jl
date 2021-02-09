@@ -1,7 +1,7 @@
 """
   I s i n g J
 
-  ver 0.2.1 Released Sep 2020 
+  ver 0.2.2 Released Sep 2020 
   This code is distributed under the constitution of GNLv3.
   Log of ising.jl  
   2019/04/24  Released by PearCandy                 """
