@@ -1,3 +1,6 @@
+#
+#  Initial Module
+#
 module Initial
     export random_start,cold_start
 
