@@ -1,4 +1,4 @@
-### IsingJ
+## IsingJ
 
 A Julia scripts for solving Ising model.
 
@@ -9,7 +9,7 @@ A Julia scripts for solving Ising model.
 ![isingj](https://github.com/pearcandy/IsingJ/blob/master/img/pic.png?raw=true)
 
 
-#### excute
+#### run
 ```
 ] # change Pkg mode  
 activate .
