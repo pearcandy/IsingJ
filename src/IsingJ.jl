@@ -1,9 +1,12 @@
 """
-  I s i n g J
+  IsingJ
 
   ver 0.2.2 Released Sep 2020 
-  This code is distributed under the constitution of GNLv3.
+  This code is distributed under the constitution 
+  of MIT LICENSE.
+
   Log of ising.jl  
+
   2019/04/24  Released by PearCandy                 """
 
 module IsingJ
@@ -117,7 +120,7 @@ module IsingJ
         println("     I s i n g J")
         println("     Version 0.2.0, Released July 2019")
         println(" ")
-        println("     Copyright (C) yassan1980")
+        println("     Copyright (C) PearCandy")
         println(" ")
         println("     Usage: julia Ising.jl -h")
         println("---------------------------------------")        

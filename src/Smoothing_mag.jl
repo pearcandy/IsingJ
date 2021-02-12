@@ -1,3 +1,14 @@
+"""
+  IsingJ
+
+  ver 0.2.2 Released Sep 2020 
+  This code is distributed under the constitution 
+  of MIT LICENSE.
+
+  module Initial  
+
+  2019/04/24  Released by PearCandy                 """
+
 module Smoothing_mag
     using Printf
     export output_T_vs_mag
